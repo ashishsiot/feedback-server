@@ -113,7 +113,7 @@ include('dbcon1.php');
                             <tbody>
                                 <?php
                                     
-                                    $query = "select feedback.f_empid1,faculty.f_name, feedback.f_subject , (sum(q1)/(count(q1)*5))*100 as q1, (sum(q2)/(count(q2)*5))*100 as q2, (sum(q3)/(count(q3)*5))*100 as q3, (sum(q4)/(count(q4)*5))*100 as q4, (sum(q5)/(count(q5)*5))*100 as q5, (sum(q6)/(count(q6)*5))*100 as q6, (sum(q7)/(count(q7)*5))*100 as q7 from feedback join faculty on faculty.f_empid1= feedback.f_empid1  and f_year='". $s_year ."'and f_branch='". $f_branch ."'  GROUP by f_subject ORDER BY f_empid1";
+                                    $query = "select feedback.f_empid1,faculty.f_name, feedback.f_subject , (sum(q1)/(count(q1)*5))*100 as q1, (sum(q2)/(count(q2)*5))*100 as q2, (sum(q3)/(count(q3)*5))*100 as q3, (sum(q4)/(count(q4)*5))*100 as q4, (sum(q5)/(count(q5)*5))*100 as q5, (sum(q6)/(count(q6)*5))*100 as q6, (sum(q7)/(count(q7)*5))*100 as q7 from feedback join faculty on faculty.f_empid1= feedback.f_empid1  and f_year='". $s_year ."'and f_branch='". $f_branch ."'  GROUP by f_subject,f_empid1 ORDER BY f_empid1";
                                     $statement = $conn->prepare($query);
                                     $statement->execute();
 
