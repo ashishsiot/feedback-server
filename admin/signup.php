@@ -2,7 +2,7 @@
 // $host = "localhost";
 // $user = "id19456629_user";
 // $password = "User@1234567";
-//$db = "id19456629_database_og";
+// $db = "id19456629_database_og";
 $host = "localhost";
 $user = "root";
 $password = "";
@@ -15,40 +15,28 @@ if ($data === false) {
     die("connection error");
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+$username =  $_REQUEST["username"];
+$password = $_REQUEST["password"];
 
 
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-
-    $sql1 = "select username from admin";
-    $result1 = mysqli_query( $data, $sql1);
-    $row1 = mysqli_fetch_array($result1);
-    // echo $row1['username'];
-
-    
-    $sql2 = "select password from admin";
-    $result2 = mysqli_query( $data, $sql2);
-    $row2 = mysqli_fetch_array($result2);
-    //echo $row2['password'];
-
-    $verify1 = password_verify($username, $row1['username']);
-    $verify2 = password_verify($password ,$row2['password']);
-
-    //echo $verify1;
-    //echo $verify2;
-
-    if ($verify1 == True  && $verify2 == True) {
-
-        header("location:responce.php");
-    }
+$hash1 = password_hash($username, 
+          PASSWORD_DEFAULT);
+$hash2 = password_hash($password, 
+          PASSWORD_DEFAULT);
+$sql = "UPDATE admin SET username='$hash1' , password='$hash2'";
+if (mysqli_query($data, $sql)) {
+    echo "Data stored in the database successfully.";
+} else {
+    echo "ERROR: Hush! Sorry. ";
 }
+mysqli_close($data);
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>ADMIN LOGIN</title>
+    <title>login</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 
@@ -63,12 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="a_login.php">Admin Login</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../faculty/f_login.php">Faculty Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="../index.php">Student Login</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -76,14 +58,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <section class="vh-100">
-        <h1 style="text-align: center;">Login Form For Admin</h1>
+        <h1 style="text-align: center;">Sign Up for Admin</h1>
         <form action="#" method="POST">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                         <div class="card shadow-2-strong p-2" style="border-radius: 1rem;">
                             <center>
-                                <h2>Sign In</h2>
+                                <h2>Sign Up</h2>
                             </center>
                             <div class="card-body text-center">
                                 <div class="form-outline mb-4">
@@ -95,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <input type="password" name="password" required class="form-control form-control-lg" placeholder="Password" />
                                 </div>
                                 <hr class="my-4">
-                                <button class="btn btn-primary btn-lg btn-block" value="Login" type="submit">Login</button>
+                                <button class="btn btn-primary btn-lg btn-block" value="SignUp" type="submit">Sign Up</button>
                             </div>
                         </div>
                     </div>

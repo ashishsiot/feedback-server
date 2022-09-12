@@ -84,7 +84,7 @@ include('dbcon1.php');
             <div class="col-md-12 mt-4">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Feeedback</h3>
+                        <h3>Feedback</h3>
                     </div>
                     
                     <div class="card-body">
@@ -95,16 +95,16 @@ include('dbcon1.php');
                             <thead>
                                 <tr>
                                     
-                                    <th>empid</th>
-                                    <th>name</th>
-                                    <th>subject</th>
-                                    <th>q1</th>
-                                    <th>q2</th>
-                                    <th>q3</th>
-                                    <th>q4</th>
-                                    <th>q5</th>
-                                     <th>q6</th>
-                                     <th>q7</th>
+                                    <th>Emp ID</th>
+                                    <th>Name</th>
+                                    <th>Subject</th>
+                                    <th>Teachers Subject Knowledge</th>
+                                    <th>Communication skills of the teacher</th>
+                                    <th>Ability to bring conceptual clarity and promotion of thinking ability</th>
+                                    <th>Teacher illustrates the concept through examples and applications</th>
+                                    <th>Use of appropriate teaching methods</th>
+                                    <th>Ability to engage students during lectures</th>
+                                    <th>Fairness in internal evaluation</th>
                                     
                                 </tr>
                             </thead>

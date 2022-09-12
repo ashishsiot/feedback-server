@@ -118,7 +118,10 @@ if ($row['status']==1){
                           <div class="col-md-2" >
                              <select class="form-select" name="s_division">
                              <option>A</option>
-                               <option>B</option>  
+                               <option>B</option> 
+                               <option>B AIDS</option> 
+                               <option>B AIML</option> 
+                               <option>B IOT</option>  
                                  <option>C</option>
                                  <option>D</option>
                                <option>E</option>

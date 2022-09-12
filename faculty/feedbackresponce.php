@@ -50,20 +50,21 @@ $con->close();
     </nav>
     
     
+
     <div class="container">
         <section>
-            <h1 style="text-align: center">Responcess</h1>
+            <h1 style="text-align: center">Response</h1>
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>Subject</th>
-                        <th>q1</th>
-                        <th>q2</th>
-                        <th>q3</th>
-                        <th>q4</th>
-                        <th>q5</th>
-                        <th>q6</th>
-                        <th>q7</th>
+                        <th>Teachers Subject Knowledge</th>
+                        <th>Communication skills of the teacher</th>
+                        <th>Ability to bring conceptual clarity and promotion of thinking ability</th>
+                        <th>Teacher illustrates the concept through examples and applications</th>
+                        <th>Use of appropriate teaching methods</th>
+                        <th>Ability to engage students during lectures</th>
+                        <th>Fairness in internal evaluation</th>
                     </tr>
                 </thead>    
                 <?php

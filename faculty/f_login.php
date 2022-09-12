@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 
 <head>
-    <title>login</title>
+    <title>fACULTY lOGIN</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     
     <section class="vh-100">
-        <h1 style="text-align: center;">Login Form For faculty</h1>
+        <h1 style="text-align: center;">Login Form For Faculty</h1>
         <form action="#" method="POST">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -80,11 +80,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </center>
                             <div class="card-body text-center">
                                 <div class="form-outline mb-4">
-                                    <label class="form-label float-left">EDU ID :</label>
+                                    <label class="form-label float-left">EDU ID:</label>
                                     <input type="text" name="f_eduid" required class="form-control form-control-lg" placeholder="Username" />
                                 </div>
                                 <div class="form-outline mb-4">
-                                    <label class="form-label float-left">Password :</label>
+                                    <label class="form-label float-left">Password:</label>
                                     <input type="password" name="f_empid1" required class="form-control form-control-lg" placeholder="Password" />
                                 </div>
                                 <hr class="my-4">
