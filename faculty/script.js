@@ -22,12 +22,12 @@ var Object1 = {
   "ECS": {
     "1": ["ec11", "ec12", "ec13", "ec14"],
     "2": ["ec21", "ec22", "ec23", "ec24"],
-    "3": ["ec31", "ec32", "ec33", "ec34"],
+    "3": ["Engineering Mathematics-3", "Engineering Mathematics-3 Tutorial", "Data Structure and Algorithm", "Electronics Design", "Digital Electronics", "Database Management System", "Skill Lab", "Data Structure and Algorithm LAB", "Electronics Design LAB", "Digital Electronics LAB", "Database Management System LAB", "Skill Lab LAB"],
     "4": ["ec41", "ec42", "ec43", "ec44"],
-    "5": ["CE", "COA", "SE", "WT","ITC","ST","PCE","CE LAB","SE/WT","ST","PCE","ITC"],  
+    "5": ["Communication Engineering", "Computer Organisation and Architecture", "Software Engineering", "Web Technology","Information Theory and Coding","Software Testing","Professional Communication and Ethics","Communication Engineering LAB","Software Engineering/Web Technology LAB","Software Testing LAB","Professional Communication and Ethics LAB","Information Theory and Coding LAB"],  
     "6": ["ec61", "ec62", "ec63", "ec64"],
     "7": ["ec71", "ec72", "ec73", "ec74"],
-    "8": ["ec81", "ec82", "ec83", "ec84"]    
+    "8": ["ec81", "ec82", "ec83", "ec84"]   
   },
   "EXTC": {
     "1": ["extc11", "extc12", "extc13", "extc14"],

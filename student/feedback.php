@@ -137,9 +137,9 @@ session_start();
 
       // DLOS OF ALL THE BRANCHES OF TE 
       $student_dlo_TE = array(
-        array('PGM', 'IP', 'ADBMS'),  // CE
-        array('DCC', 'ST'),           // EXTC
-        array('ADMT', 'ADSA'),        // IT
+        array('Probablistic Graphical Models', 'Internet Programming', 'Advanced Database System '),  // CE
+        array('Data Compression and Cryptography', 'Sensor Technology'),           // EXTC
+        array('Advanced Data Management and Technology', 'Advanced Data Structures and Analysis'),        // IT
         array(),                      // PPT
         array(),                       // MECH
         array('ITC', 'ST')             // ECS
@@ -722,7 +722,7 @@ session_start();
     elseif ($value_year == $student_year[2]) {
 
       $student_dlo1_BE_lab = array(
-        array('NLP LAB', 'MV LAB'),  // CE
+        array('Natural Language Processing LAB', 'Machine Vision LAB'),  // CE
         array('DL', 'CC'),   // EXTC
         array('IS', 'STQA'), // IT
         array('AFP', 'PDD'),  // PPT
@@ -730,7 +730,7 @@ session_start();
       );
 
       $student_dlo2_BE_lab = array(
-        array('IR LAB', 'BC LAB'),  // CE
+        array('Information Retrieval LAB', 'Blockchain LAB'),  // CE
         array('ROBOTICS', 'ICE'),   // EXTC
         array('IRS'), // IT
         array(),  // PPT
