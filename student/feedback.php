@@ -142,7 +142,7 @@ session_start();
         array('Advanced Data Management and Technology', 'Advanced Data Structures and Analysis'),        // IT
         array(),                      // PPT
         array(),                       // MECH
-        array('ITC', 'ST')             // ECS
+        array('Information Theory and Coding', 'Software Testing')             // ECS
       );
 
       // GET THE DLO OF THE TE STUDENT
@@ -295,23 +295,23 @@ session_start();
 
       // DLOS OF ALL THE BRANCHES OF BE 
       $student_dlo1_BE = array(
-        array('NLP', 'MV'),  // CE
-        array('DL', 'CCS'),   // EXTC
-        array('IS', 'STQA'), // IT
+        array('Natural Language Processing', 'Machine Vision'),  // CE
+        array('Deep Learning', 'Cloud Computing'),   // EXTC
+        array('Infrastructure Security', 'Software Testing and Quality Assurance'), // IT
         array('AFP', 'PDD'),  // PPT
         array('APS', 'RES')   // MECH
       );
 
       $student_dlo2_BE = array(
-        array('BC', 'IR'),  // CE
-        array('Rob', 'ICE'),   // EXTC
-        array('IRS'), // IT
+        array('Blockchain ', 'Information Retrieval'),  // CE
+        array('Robotics', 'Internet Communication Engineering'),   // EXTC
+        array('Information Retrieval System'), // IT
         array(),  // PPT
         array('MD', 'AV')   // MECH
       );
 
       $student_ilo_BE = array(
-        array('MIS', 'DMMM', 'CSL', 'PLM')
+        array('Management Information System', 'Disaster Management and Mitigation Measures', 'Cyber Security and Laws', 'Project Life Cycle Management')
       );
 
       // GET THE DLO1 OF THE BE STUDENT
@@ -723,16 +723,16 @@ session_start();
 
       $student_dlo1_BE_lab = array(
         array('Natural Language Processing LAB', 'Machine Vision LAB'),  // CE
-        array('DL', 'CC'),   // EXTC
-        array('IS', 'STQA'), // IT
+        array('Deep Learning', 'Cloud Computing'),   // EXTC
+        array('Infrastructure Security', 'Software Testing and Quality Assurance'), // IT
         array('AFP', 'PDD'),  // PPT
         array('APS', 'RES')   // MECH
       );
 
       $student_dlo2_BE_lab = array(
-        array('Information Retrieval LAB', 'Blockchain LAB'),  // CE
-        array('ROBOTICS', 'ICE'),   // EXTC
-        array('IRS'), // IT
+        array('Blockchain LAB', 'Information Retrieval LAB'),  // CE
+        array('Robotics', 'Internet Communication Engineering'),   // EXTC
+        array('Information Retrieval System'), // IT
         array(),  // PPT
         array('MD', 'AV')   // MECH
       );

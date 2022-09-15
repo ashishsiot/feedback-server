@@ -31,6 +31,9 @@ include('dbcon1.php');
                     <li class="nav-item">
                         <a class="nav-link active" href="f_responce.php">Feedback</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="export.php">Download Feedback</a>
+                    </li>
                 </ul>
                 <span class="navbar-text">
                     
