@@ -103,7 +103,7 @@ if ($row['status']==1){
                              <option>IT</option>  
                              <option>ECS</option>
                              <option>EXTC</option>
-                             <option>Mechanical</option>
+                             <option>MECH</option>
                              <option>AIDS</option>
                              <option>AIML</option>
                              <option>IOT</option>
@@ -140,9 +140,12 @@ if ($row['status']==1){
                  </form>
            </div> 
         <?php
-        $s_branch=$_POST["s_branch"];
-        $s_year=$_POST["s_year"]; 
-        $s_division=$_POST["s_division"]; 
+       // $s_branch=$_POST["s_branch"];
+        $s_branch = isset($_POST['s_branch']) ? $_POST['s_branch'] : '';
+       // $s_year=$_POST["s_year"]; 
+        $s_year = isset($_POST['s_year']) ? $_POST['s_year'] : '';
+        //$s_division=$_POST["s_division"]; 
+        $s_division = isset($_POST['s_division']) ? $_POST['s_division'] : '';
         ?>  
     
     <br>

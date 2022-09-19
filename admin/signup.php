@@ -16,8 +16,10 @@ if ($data === false) {
 }
 
 
-$username =  $_REQUEST["username"];
-$password = $_REQUEST["password"];
+//$username =  $_REQUEST["username"];
+$username = isset($_REQUEST["username"]) ? $_REQUEST["username"] : '';
+//$password = $_REQUEST["password"];
+$password = isset($_REQUEST["password"]) ? $_REQUEST["password"] : '';
 
 
 $hash1 = password_hash($username, 
@@ -36,7 +38,7 @@ mysqli_close($data);
 <html>
 
 <head>
-    <title>login</title>
+    <title>Sign Up</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 
@@ -49,7 +51,7 @@ mysqli_close($data);
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="a_login.php">Admin Login</a>
+                        <a class="nav-link active" aria-current="page" href="a_login.php">Admin Sign Up</a>
                     </li>
                 </ul>
             </div>

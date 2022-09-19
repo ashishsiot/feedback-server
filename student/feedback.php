@@ -86,10 +86,10 @@ session_start();
     // $username = "id19456629_user";
     // $password = "User@1234567";
     // $databaseName = "id19456629_database";
-   $hostname = "localhost";
-   $username = "root";
-   $password = "";
-   $databaseName = "id19456629_database_og";
+    $hostname = "localhost";
+    $username = "root";
+    $password = "";
+    $databaseName = "id19456629_database_og";
 
     // Create connection
     $conn = new mysqli($hostname, $username, $password, $databaseName);
@@ -141,7 +141,7 @@ session_start();
         array('Data Compression and Cryptography', 'Sensor Technology'),           // EXTC
         array('Advanced Data Management and Technology', 'Advanced Data Structures and Analysis'),        // IT
         array(),                      // PPT
-        array(),                       // MECH
+        array("Optimization Technique", "Statistical Technique"),                       // MECH
         array('Information Theory and Coding', 'Software Testing')             // ECS
       );
 
@@ -221,13 +221,13 @@ session_start();
       }
       // PPT
       if ($value_branch == $student_branch[3]) {
-        $dlo = $student_dlo_TE[3];
-        $key = array_search($value_to_delete_dlo, $dlo);
-        if (($key) !== false) {
-          #deleting the key found
-          unset($dlo[$key]);
-        }
-        $dlo1 = array_values($dlo);
+        // $dlo = $student_dlo_TE[3];
+        // $key = array_search($value_to_delete_dlo, $dlo);
+        // if (($key) !== false) {
+        //   #deleting the key found
+        //   unset($dlo[$key]);
+        // }
+        // $dlo1 = array_values($dlo);
 
         $sql = "
         SELECT f_subject,f_name,f_empid1,f_year,f_branch from f_allocation,student,faculty
@@ -236,8 +236,8 @@ session_start();
         student.s_year = f_allocation.f_year AND
         student.s_prn= '" . $_SESSION['s_prn'] . "'  AND 
         f_allocation.f_empid= faculty.f_empid1 and
-        f_type='theory' AND 
-        f_subject != '$dlo1[0]' 
+        f_type='theory' 
+     
    ";
         $result = $conn->query($sql);
       }
@@ -298,16 +298,16 @@ session_start();
         array('Natural Language Processing', 'Machine Vision'),  // CE
         array('Deep Learning', 'Cloud Computing'),   // EXTC
         array('Infrastructure Security', 'Software Testing and Quality Assurance'), // IT
-        array('AFP', 'PDD'),  // PPT
-        array('APS', 'RES')   // MECH
+        array('Advanced Food Packaging', 'Package Design and Development'),  // PPT
+        array('Automotive Power System', 'Renewable Energy Source')   // MECH
       );
 
       $student_dlo2_BE = array(
-        array('Blockchain ', 'Information Retrieval'),  // CE
+        array('Blockchain LAB', 'Information Retrieval LAB'),  // CE
         array('Robotics', 'Internet Communication Engineering'),   // EXTC
         array('Information Retrieval System'), // IT
         array(),  // PPT
-        array('MD', 'AV')   // MECH
+        array('Machine Design', 'Advanced Vibration')   // MECH
       );
 
       $student_ilo_BE = array(
@@ -393,7 +393,7 @@ session_start();
       elseif ($value_branch == $student_branch[1]) {
         $dlo1 = $student_dlo1_BE[1];
         $dlo2 = $student_dlo2_BE[1];
-         $ilo = $student_ilo_BE[0];
+        $ilo = $student_ilo_BE[0];
         $key1 = array_search($value_to_delete_dlo1, $dlo1);
         if (($key1) !== false) {
           #deleting the key found
@@ -416,7 +416,7 @@ session_start();
           unset($ilo[$key3]);
         }
         $ilo1 = array_values($ilo);
-        
+
         $sql = "
         SELECT f_subject,f_name,f_empid1,f_year,f_branch from f_allocation,student,faculty
         WHERE student.s_branch = f_allocation.f_branch AND 
@@ -452,15 +452,15 @@ session_start();
           unset($dlo2[$key2]);
         }
         $dlo12 = array_values($dlo2);
-        
-        
+
+
         $key3 = array_search($value_to_delete_ilo, $ilo);
         if (($key3) !== false) {
           #deleting the key found
           unset($ilo[$key3]);
         }
         $ilo1 = array_values($ilo);
-        
+
 
         $sql = "
         SELECT f_subject,f_name,f_empid1,f_year,f_branch from f_allocation,student,faculty
@@ -481,7 +481,8 @@ session_start();
       // PPT
       if ($value_branch == $student_branch[3]) {
         $dlo1 = $student_dlo1_BE[3];
-        $dlo2 = $student_dlo2_BE[3];
+        //$dlo2 = $student_dlo2_BE[3];
+        $ilo = $student_ilo_BE[0];
         $key1 = array_search($value_to_delete_dlo1, $dlo1);
         if (($key1) !== false) {
           #deleting the key found
@@ -490,12 +491,19 @@ session_start();
         $dlo11 = array_values($dlo1);
 
 
-        $key2 = array_search($value_to_delete_dlo2, $dlo2);
-        if (($key2) !== false) {
+        // $key2 = array_search($value_to_delete_dlo2, $dlo2);
+        // if (($key2) !== false) {
+        //   #deleting the key found
+        //   unset($dlo1[$key2]);
+        // }
+        // $dlo12 = array_values($dlo2);
+
+        $key3 = array_search($value_to_delete_ilo, $ilo);
+        if (($key3) !== false) {
           #deleting the key found
-          unset($dlo1[$key2]);
+          unset($ilo[$key3]);
         }
-        $dlo12 = array_values($dlo2);
+        $ilo1 = array_values($ilo);
 
         $sql = "
         SELECT f_subject,f_name,f_empid1,f_year,f_branch from f_allocation,student,faculty
@@ -505,8 +513,10 @@ session_start();
         student.s_prn= '" . $_SESSION['s_prn'] . "'  AND 
         f_allocation.f_empid= faculty.f_empid1 and
         f_type='theory' AND 
-        f_subject != '$dlo11[0]' AND 
-        f_subject != '$dlo12[0]'";
+        f_subject != '$dlo11[0]'  AND
+        f_subject != '$ilo1[0]' AND
+        f_subject != '$ilo1[1]' AND
+        f_subject != '$ilo1[2]' ";
 
         $result = $conn->query($sql);
       }
@@ -529,16 +539,16 @@ session_start();
           unset($dlo1[$key2]);
         }
         $dlo12 = array_values($dlo2);
-        
-          
+
+
         $key3 = array_search($value_to_delete_ilo, $ilo);
         if (($key3) !== false) {
           #deleting the key found
           unset($ilo[$key3]);
         }
         $ilo1 = array_values($ilo);
-        
-        
+
+
 
         $sql = "
         SELECT f_subject,f_name,f_empid1,f_year,f_branch from f_allocation,student,faculty
@@ -573,7 +583,7 @@ session_start();
           <input type=hidden type="text" class="form-control" name="f_empid1" value=<?php echo '"' . $row["f_empid1"] . '"' ?>>
           <input type=hidden type="text" class="form-control" name="f_subject" value=<?php echo '"' . $row["f_subject"] . '"' ?>>
           <input type=hidden type="text" class="form-control" name="f_year" value=<?php echo '"' . $row["f_year"] . '"' ?>>
-            <input type=hidden type="text" class="form-control" name="f_branch" value=<?php echo '"' . $row["f_branch"] . '"' ?>>
+          <input type=hidden type="text" class="form-control" name="f_branch" value=<?php echo '"' . $row["f_branch"] . '"' ?>>
 
           <table class="table table-bordered">
             <thead>
@@ -648,7 +658,7 @@ session_start();
           <?php
           $sqlt = "SELECT s_prn,f_empid1,f_subject FROM feedback where s_prn = '" . $_SESSION['s_prn'] . "'and f_empid1 = '" . $row["f_empid1"] . "'and f_subject='" . $row["f_subject"] . "'";
           $result1 = $conn->query($sqlt);
- 
+
           if ($result1->num_rows > 0) {
             // output data of each row
             echo '<span style="color:green;border: 1px solid green;padding: 5px;font-size: 16px;">Response Noted!</span>';
@@ -679,10 +689,10 @@ session_start();
     // $username = "id19456629_user";
     // $password = "User@1234567";
     // $databaseName = "id19456629_database";
-   $hostname = "localhost";
-   $username = "root";
-   $password = "";
-   $databaseName = "id19456629_database_og";
+    $hostname = "localhost";
+    $username = "root";
+    $password = "";
+    $databaseName = "id19456629_database_og";
     // Create connection
     $conn = new mysqli($hostname, $username, $password, $databaseName);
     // Check connection
@@ -725,8 +735,8 @@ session_start();
         array('Natural Language Processing LAB', 'Machine Vision LAB'),  // CE
         array('Deep Learning', 'Cloud Computing'),   // EXTC
         array('Infrastructure Security', 'Software Testing and Quality Assurance'), // IT
-        array('AFP', 'PDD'),  // PPT
-        array('APS', 'RES')   // MECH
+        array('Advanced Food Packaging', 'Package Design and Development'),  // PPT
+        array('Automotive Power System', 'Renewable Energy Source')   // MECH
       );
 
       $student_dlo2_BE_lab = array(
@@ -734,7 +744,7 @@ session_start();
         array('Robotics', 'Internet Communication Engineering'),   // EXTC
         array('Information Retrieval System'), // IT
         array(),  // PPT
-        array('MD', 'AV')   // MECH
+        array('Machine Design', 'Advanced Vibration')   // MECH
       );
 
 
@@ -759,15 +769,15 @@ session_start();
       if ($value_branch == $student_branch[0]) {
         $dlo1_lab = $student_dlo1_BE_lab[0];
         $dlo2_lab = $student_dlo2_BE_lab[0];
-        
-       // var_dump($dlo2_lab);
+
+        // var_dump($dlo2_lab);
         $key1_lab = array_search($value_to_delete_dlo1_lab, $dlo1_lab);
         if (($key1_lab) !== false) {
           #deleting the key found
           unset($dlo1_lab[$key1_lab]);
         }
         $dlo11_lab = array_values($dlo1_lab);
-        
+
 
 
         $key2_lab = array_search($value_to_delete_dlo2_lab, $dlo2_lab);
@@ -776,8 +786,8 @@ session_start();
           unset($dlo2_lab[$key2_lab]);
         }
         $dlo12_lab = array_values($dlo2_lab);
-      
-       // var_dump($dlo12_lab);
+
+        // var_dump($dlo12_lab);
 
         $sql = "
         SELECT f_subject,f_name,f_empid1,f_year, f_type,f_branch from f_allocation,student,faculty
@@ -793,142 +803,8 @@ session_start();
 ";
 
         $result = $conn->query($sql);
-      }
-      // EXTC
-    //   elseif ($value_branch == $student_branch[1]) {
-    //     $dlo1 = $student_dlo1_BE[1];
-    //     $dlo2 = $student_dlo2_BE[1];
-    //     $key1 = array_search($value_to_delete_dlo1, $dlo1);
-    //     if (($key1) !== false) {
-    //       #deleting the key found
-    //       unset($dlo1[$key1]);
-    //     }
-    //     $dlo11 = array_values($dlo1);
-
-
-    //     $key2 = array_search($value_to_delete_dlo2, $dlo2);
-    //     if (($key2) !== false) {
-    //       #deleting the key found
-    //       unset($dlo2[$key2]);
-    //     }
-    //     $dlo12 = array_values($dlo2);
-
-    //     $sql = "
-    //     SELECT f_subject,f_name,f_empid1,f_year from f_allocation,student,faculty
-    //     WHERE student.s_branch = f_allocation.f_branch AND 
-    //     student.s_division = f_allocation.f_division AND
-    //     student.s_year = f_allocation.f_year AND
-    //     student.s_prn= '" . $_SESSION['s_prn'] . "'  AND 
-    //     student.s_batch = f_allocation.f_batch AND
-    //     f_allocation.f_empid= faculty.f_empid1 and
-    //     f_type='LAB' AND
-    //     f_subject != '$dlo11[0]' AND 
-    //     f_subject != '$dlo12[0]'";
-
-    //     $result = $conn->query($sql);
-    //   }
-    //   // IT
-    //   elseif ($value_branch == $student_branch[2]) {
-    //     $dlo1 = $student_dlo1_BE[2];
-    //     $dlo2 = $student_dlo2_BE[2];
-    //     $key1 = array_search($value_to_delete_dlo1, $dlo1);
-    //     if (($key1) !== false) {
-    //       #deleting the key found
-    //       unset($dlo1[$key1]);
-    //     }
-    //     $dlo11 = array_values($dlo1);
-
-
-    //     $key2 = array_search($value_to_delete_dlo2, $dlo2);
-    //     if (($key2) !== false) {
-    //       #deleting the key found
-    //       unset($dlo2[$key2]);
-    //     }
-    //     $dlo12 = array_values($dlo2);
-
-    //     $sql = "
-    //     SELECT f_subject,f_name,f_empid1,f_year from f_allocation,student,faculty
-    //     WHERE student.s_branch = f_allocation.f_branch AND 
-    //     student.s_division = f_allocation.f_division AND
-    //     student.s_year = f_allocation.f_year AND
-    //     student.s_prn= '" . $_SESSION['s_prn'] . "'  AND 
-    //     student.s_batch = f_allocation.f_batch AND
-    //     f_allocation.f_empid= faculty.f_empid1 and
-    //     f_type='LAB' AND
-    //     f_subject != '$dlo11[0]' AND 
-    //     f_subject != '$dlo12[0]'";
-
-    //     $result = $conn->query($sql);
-    //   }
-    //   // PPT
-    //   elseif ($value_branch == $student_branch[3]) {
-    //     $dlo1 = $student_dlo1_BE[3];
-    //     $dlo2 = $student_dlo2_BE[3];
-    //     $key1 = array_search($value_to_delete_dlo1, $dlo1);
-    //     if (($key1) !== false) {
-    //       #deleting the key found
-    //       unset($dlo2[$key1]);
-    //     }
-    //     $dlo11 = array_values($dlo1);
-
-
-    //     $key2 = array_search($value_to_delete_dlo2, $dlo2);
-    //     if (($key2) !== false) {
-    //       #deleting the key found
-    //       unset($dlo1[$key2]);
-    //     }
-    //     $dlo12 = array_values($dlo2);
-
-    //     $sql = "
-    //     SELECT f_subject,f_name,f_empid1,f_year from f_allocation,student,faculty
-    //     WHERE student.s_branch = f_allocation.f_branch AND 
-    //     student.s_division = f_allocation.f_division AND
-    //     student.s_year = f_allocation.f_year AND
-    //     student.s_prn= '" . $_SESSION['s_prn'] . "'  AND 
-    //     student.s_batch = f_allocation.f_batch AND
-    //     f_allocation.f_empid= faculty.f_empid1 and
-    //     f_type='LAB' AND
-    //     f_subject != '$dlo11[0]' AND 
-    //     f_subject != '$dlo12[0]'";
-
-    //     $result = $conn->query($sql);
-    //   }
-    //   // MECH
-    //   elseif ($value_branch == $student_branch[4]) {
-    //     $dlo1 = $student_dlo1_BE[4];
-    //     $dlo2 = $student_dlo2_BE[4];
-    //     $key1 = array_search($value_to_delete_dlo1, $dlo1);
-    //     if (($key1) !== false) {
-    //       #deleting the key found
-    //       unset($dlo2[$key1]);
-    //     }
-    //     $dlo11 = array_values($dlo1);
-
-
-    //     $key2 = array_search($value_to_delete_dlo2, $dlo2);
-    //     if (($key2) !== false) {
-    //       #deleting the key found
-    //       unset($dlo1[$key2]);
-    //     }
-    //     $dlo12 = array_values($dlo2);
-
-    //     $sql = "
-    //     SELECT f_subject,f_name,f_empid1,f_year from f_allocation,student,faculty
-    //     WHERE student.s_branch = f_allocation.f_branch AND 
-    //     student.s_division = f_allocation.f_division AND
-    //     student.s_year = f_allocation.f_year AND
-    //     student.s_prn= '" . $_SESSION['s_prn'] . "'  AND 
-    //     student.s_batch = f_allocation.f_batch AND
-    //     f_allocation.f_empid= faculty.f_empid1 and
-    //     f_type='LAB' AND
-    //     f_subject != '$dlo11[0]' AND 
-    //     f_subject != '$dlo12[0]' 
-    //  ";
-
-    //     $result = $conn->query($sql);
-    //   }
-    else {
-      $sql = "
+      } else {
+        $sql = "
       SELECT f_subject,f_name,f_empid1,f_year,f_branch from f_allocation,student,faculty
       WHERE student.s_branch = f_allocation.f_branch AND 
       student.s_division = f_allocation.f_division AND
@@ -938,8 +814,8 @@ session_start();
       f_allocation.f_empid= faculty.f_empid1 and
       f_type='LAB';
 ";
-      $result = $conn->query($sql);
-    }
+        $result = $conn->query($sql);
+      }
     }
 
     if ($result->num_rows > 0) {
@@ -955,11 +831,11 @@ session_start();
           <input type=hidden type="text" class="form-control" name="f_empid1" value=<?php echo '"' . $row["f_empid1"] . '"' ?>>
           <input type=hidden type="text" class="form-control" name="f_subject" value=<?php echo '"' . $row["f_subject"] . '"' ?>>
           <input type=hidden type="text" class="form-control" name="f_year" value=<?php echo '"' . $row["f_year"] . '"' ?>>
-            <input type=hidden type="text" class="form-control" name="f_branch" value=<?php echo '"' . $row["f_branch"] . '"' ?>>
+          <input type=hidden type="text" class="form-control" name="f_branch" value=<?php echo '"' . $row["f_branch"] . '"' ?>>
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th>Question(Lab)</th>
+                <th>Question</th>
                 <th>Strongly Disagree</th>
                 <th>Disagree</th>
                 <th>Nutral</th>

@@ -57,11 +57,11 @@ include('dbcon1.php');
                              <option>IT</option>  
                              <option>ECS</option>
                              <option>EXTC</option>
-                             <option>Mechanical</option>
+                             <option>MECH</option>
                              <option>AIDS</option>
                              <option>AIML</option>
                              <option>IOT</option>
-                             <option>ppt</option>
+                             <option>PPT</option>
                          </select>
                         </div>   
                          <div class="col-md-2" >

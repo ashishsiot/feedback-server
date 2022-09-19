@@ -103,7 +103,7 @@ session_start();
                                                 Branch
                                             </th>
                                             <th class="text-center">
-                                                year
+                                                Year
                                             </th>
                                             <th class="text-center">
                                                 Semester
@@ -112,7 +112,7 @@ session_start();
                                                 Div
                                             </th>
                                             <th class="text-center">
-                                                type
+                                                Type
                                             </th>
                                             <th class="text-center">
                                                 Subject
@@ -216,7 +216,7 @@ session_start();
                                             Branch
                                         </th>
                                         <th class="text-center">
-                                            year
+                                            Year
                                         </th>
                                         <th class="text-center">
                                             Semester
@@ -225,7 +225,7 @@ session_start();
                                             Div
                                         </th>
                                         <th class="text-center">
-                                            type
+                                            Type
                                         </th>
                                         <th class="text-center">
                                             Subject
@@ -266,7 +266,7 @@ session_start();
                                             Branch
                                         </th>
                                         <th class="text-center">
-                                            year
+                                            Year
                                         </th>
                                         <th class="text-center">
                                             Semester
@@ -275,7 +275,7 @@ session_start();
                                             Div
                                         </th>
                                         <th class="text-center">
-                                            type
+                                            Type
                                         </th>
                                         <th class="text-center">
                                             Subject

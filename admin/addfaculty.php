@@ -57,7 +57,7 @@ include( 'dbcon.php' );
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-outline mb-4">
-                                            <label class="form-label float-left">Emp id:</label>
+                                            <label class="form-label float-left">Faculty ID:</label>
                                            <input type="text" name="f_empid" required class="form-control">
                                         </div>
                                     </div>
@@ -69,7 +69,7 @@ include( 'dbcon.php' );
                                     </div>
                                     <div class="col">
                                         <div class="form-outline mb-4">
-                                            <label class="form-label float-left">Edu id:</label>
+                                            <label class="form-label float-left">Edu ID:</label>
                                             <input type="text" name="f_eduid" required class="form-control">
                                         </div>
                                     </div>
@@ -105,9 +105,9 @@ $con->close();
 		<h1 style="text-align: center">Faculty Members</h1>
 		<table class="table table-bordered">
 			<tr>
-				<th>f_empid1</th>
-				<th>f_name</th>
-                <th>f_eduid</th>
+				<th>Faculty ID</th>
+				<th>Name</th>
+                <th>Edu ID</th>
                 <!-- <th>f_phoneno</th> -->
                <!-- <th>Edit</th>  -->
                 <th>Delete</th>
