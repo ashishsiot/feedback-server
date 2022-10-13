@@ -79,8 +79,10 @@ include('dbcon1.php');
                  </form>
            </div> 
         <?php
-        $f_branch=$_POST["f_branch"];
-        $s_year=$_POST["s_year"];
+        //$f_branch=$_POST["f_branch"];
+        $f_branch = isset($_POST['f_branch']) ? $_POST['f_branch'] : '';
+        //$s_year=$_POST["s_year"];
+        $s_year = isset($_POST['s_year']) ? $_POST['s_year'] : '';
         ?>  
     <div class="container">
         <div class="row">

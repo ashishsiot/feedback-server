@@ -140,7 +140,7 @@ session_start();
         array('Probablistic Graphical Models', 'Internet Programming', 'Advanced Database System '),  // CE
         array('Data Compression and Cryptography', 'Sensor Technology'),           // EXTC
         array('Advanced Data Management and Technology', 'Advanced Data Structures and Analysis'),        // IT
-        array(),                      // PPT
+        array('Package Distribution and Dynamics'),                      // PPT
         array("Optimization Technique", "Statistical Technique"),                       // MECH
         array('Information Theory and Coding', 'Software Testing')             // ECS
       );
@@ -303,15 +303,15 @@ session_start();
       );
 
       $student_dlo2_BE = array(
-        array('Blockchain LAB', 'Information Retrieval LAB'),  // CE
+        array('Blockchain', 'Information Retrieval'),  // CE
         array('Robotics', 'Internet Communication Engineering'),   // EXTC
         array('Information Retrieval System'), // IT
         array(),  // PPT
-        array('Machine Design', 'Advanced Vibration')   // MECH
+        array('Machine Diagnostic', 'Advanced Vibration')   // MECH
       );
 
       $student_ilo_BE = array(
-        array('Management Information System', 'Disaster Management and Mitigation Measures', 'Cyber Security and Laws', 'Project Life Cycle Management')
+        array('Management Information System', 'Disaster Management and Mitigation Measures', 'Cyber Security and Laws', 'Product Life Cycle Management')
       );
 
       // GET THE DLO1 OF THE BE STUDENT
@@ -481,29 +481,30 @@ session_start();
       // PPT
       if ($value_branch == $student_branch[3]) {
         $dlo1 = $student_dlo1_BE[3];
-        //$dlo2 = $student_dlo2_BE[3];
+     
+        $dlo2 = $student_dlo2_BE[3];
+       
         $ilo = $student_ilo_BE[0];
+ 
         $key1 = array_search($value_to_delete_dlo1, $dlo1);
+
         if (($key1) !== false) {
           #deleting the key found
-          unset($dlo2[$key1]);
+          unset($dlo1[$key1]);
         }
         $dlo11 = array_values($dlo1);
 
+       
 
-        // $key2 = array_search($value_to_delete_dlo2, $dlo2);
-        // if (($key2) !== false) {
-        //   #deleting the key found
-        //   unset($dlo1[$key2]);
-        // }
-        // $dlo12 = array_values($dlo2);
 
         $key3 = array_search($value_to_delete_ilo, $ilo);
+
         if (($key3) !== false) {
           #deleting the key found
           unset($ilo[$key3]);
         }
         $ilo1 = array_values($ilo);
+
 
         $sql = "
         SELECT f_subject,f_name,f_empid1,f_year,f_branch from f_allocation,student,faculty
@@ -516,8 +517,8 @@ session_start();
         f_subject != '$dlo11[0]'  AND
         f_subject != '$ilo1[0]' AND
         f_subject != '$ilo1[1]' AND
-        f_subject != '$ilo1[2]' ";
-
+        f_subject != '$ilo1[2]'  
+        ";
         $result = $conn->query($sql);
       }
       // MECH
@@ -528,7 +529,7 @@ session_start();
         $key1 = array_search($value_to_delete_dlo1, $dlo1);
         if (($key1) !== false) {
           #deleting the key found
-          unset($dlo2[$key1]);
+          unset($dlo1[$key1]);
         }
         $dlo11 = array_values($dlo1);
 
@@ -536,7 +537,7 @@ session_start();
         $key2 = array_search($value_to_delete_dlo2, $dlo2);
         if (($key2) !== false) {
           #deleting the key found
-          unset($dlo1[$key2]);
+          unset($dlo2[$key2]);
         }
         $dlo12 = array_values($dlo2);
 
@@ -712,17 +713,53 @@ session_start();
 ";
       $result = $conn->query($sql);
     } elseif ($value_year == $student_year[1]) {
-      $sql = "
-      SELECT f_subject,f_name,f_empid1,f_year,f_branch from f_allocation,student,faculty
-      WHERE student.s_branch = f_allocation.f_branch AND 
-      student.s_division = f_allocation.f_division AND
-      student.s_year = f_allocation.f_year AND
-      student.s_prn= '" . $_SESSION['s_prn'] . "'  AND 
-      student.s_batch = f_allocation.f_batch and
-      f_allocation.f_empid= faculty.f_empid1 and
-      f_type='LAB';
-";
-      $result = $conn->query($sql);
+
+      // DLOS OF ALL THE BRANCHES OF TE 
+      $student_dlo_TE_LAB = array(
+        array('Information Theory and Coding LAB', 'Software Testing LAB')             // ECS
+      );
+
+      // GET THE DLO OF THE TE lab STUDENT
+      $sql_dlo_lab = "SELECT s_dlo1_lab from student where s_prn='" . $_SESSION['s_prn'] . "'";
+      $result_dlo_lab = $con->query($sql_dlo_lab);
+      $dlo_lab = mysqli_fetch_assoc($result_dlo_lab);
+      $value_to_delete_dlo_lab = $dlo_lab['s_dlo1_lab'];
+
+      // ecs
+      if ($value_branch == $student_branch[5]) {
+        $dlo_lab = $student_dlo_TE_LAB[0];
+        $key = array_search($value_to_delete_dlo_lab, $dlo_lab);
+        if (($key) !== false) {
+          #deleting the key found
+          unset($dlo_lab[$key]);
+        }
+        $dlo1_lab = array_values($dlo_lab);
+
+        $sql = "
+        SELECT f_subject,f_name,f_empid1,f_year,f_branch from f_allocation,student,faculty
+        WHERE student.s_branch = f_allocation.f_branch AND 
+        student.s_division = f_allocation.f_division AND
+        student.s_year = f_allocation.f_year AND
+        student.s_prn= '" . $_SESSION['s_prn'] . "'  AND 
+        student.s_batch = f_allocation.f_batch and
+        f_allocation.f_empid= faculty.f_empid1 and
+        f_type='LAB' AND 
+              f_subject != '$dlo1_lab[0]'";
+
+        $result = $conn->query($sql);
+      } else {
+        $sql = "
+        SELECT f_subject,f_name,f_empid1,f_year,f_branch from f_allocation,student,faculty
+        WHERE student.s_branch = f_allocation.f_branch AND 
+        student.s_division = f_allocation.f_division AND
+        student.s_year = f_allocation.f_year AND
+        student.s_prn= '" . $_SESSION['s_prn'] . "'  AND 
+        student.s_batch = f_allocation.f_batch and
+        f_allocation.f_empid= faculty.f_empid1 and
+        f_type='LAB';
+  ";
+        $result = $conn->query($sql);
+      }
     }
 
     ///////////////////////BE/////////////////////////////////////

@@ -152,7 +152,7 @@ if ($row['status']==1){
     <div class="container">
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="Remaning-tab" data-bs-toggle="tab" data-bs-target="#Remaning" type="button" role="tab" aria-controls="Remaning" aria-selected="true">Remaning Students</button>
+    <button class="nav-link active" id="Remaning-tab" data-bs-toggle="tab" data-bs-target="#Remaning" type="button" role="tab" aria-controls="Remaning" aria-selected="true">Remaining Students</button>
   </li>
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="Resopnded-tab" data-bs-toggle="tab" data-bs-target="#Resopnded" type="button" role="tab" aria-controls="Resopnded" aria-selected="false">Responded Students</button>

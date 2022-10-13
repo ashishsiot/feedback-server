@@ -6,7 +6,7 @@ var Object1 = {
     "4": ["c41", "c42", "c43", "c44"],
     "5": ["Software Engineering", "Software Engineering LAB", "Theoretical Computer Science", "Theoretical Computer Science LAB", "Computer Network", "Computer Network LAB", "Data Warehouse Management", "Data Warehouse Management LAB", "Internet Programming", "Advanced Database Management System", "Probabilistic Graphical Model", "Professional Communication and Ethics", "Professional Communication and Ethics LAB"],
     "6": ["c61", "c62", "c63", "c64"],
-    "7": ["Machine Learning", "Big Data Analytics", "Machine Vision", "Machine Vision LAB", "Quantum Computing", "Quantum Computing LAB", "Natural Language Processing LAB", "Blockchain Technology", "Blockchain Technology LAB", "Machine Learning LAB", "Product Life Cycle Management", "Disaster Management and Mitigation Measures", "Cyber Security and laws", "Management Information System", "Information Retrieval", "Information Retrieval LAB", "Big Data Analytics LAB"],
+    "7": ["Machine Learning", "Big Data Analytics", "Machine Vision", "Machine Vision LAB", "Quantum Computing", "Quantum Computing LAB", "Natural Language Processing LAB", "Blockchain", "Blockchain LAB", "Machine Learning LAB", "Product Life Cycle Management", "Disaster Management and Mitigation Measures", "Cyber Security and laws", "Management Information System", "Information Retrieval", "Information Retrieval LAB", "Big Data Analytics LAB"],
     "8": ["c81", "c82", "c83", "c84"]
   },
   "IT": {
@@ -14,9 +14,9 @@ var Object1 = {
     "2": ["it21", "it22", "it23", "it24"],
     "3": ["Engineering Mathematics-3", "Engineering Mathematics-3 Tutorial", "Principle of Communication", "SQL LAB", "JAVA LAB", "Data Structure and Analysis", "Data Structure and Analysis LAB", "Database Management System", "Paradigms and Computer Programming Fundamentals", "Computer Programming Paradigms LAB"],
     "4": ["it41", "it42", "it43", "it44"],
-    "5": ["Internet Programming", "Computer Network Security", "Entrepreneurship and E-Business", "Software Engineering", "Advance Data Management Technology", "Advance Data Structures and Analysis", "Professional Communication and Ethics II", "Internet Programming LAB", "Security LAB", "DevOps LAB", "Advanced DevOps LAB"],
+    "5": ["Internet Programming", "Computer Network Security", "Entrepreneurship and E-Business", "Software Engineering", "Advance Data Management Technology", "Advance Data Structures and Analysis", "Professional Communication and Ethics II", "Professional Communication and Ethics II LAB", "Internet Programming LAB", "Security LAB", "DevOps LAB", "Advanced DevOps LAB"],
     "6": ["it61", "it62", "it63", "it64"],
-    "7": ["AIDS2", "IOE", "Infrastructure Security/SDQA", "Information Retrieval System", "DS LAB", "IOE LAB", "SAD LAB", "ROSP LAB", "Management Information System", "Cyber Security and laws", "Disaster Management and Mitigation Measures", "Product Life Cycle Management"],
+    "7": ["AIDS2", "Internet of Everything", "Infrastructure Security", "Software Testing and Quality Assurance", "Information Retrieval System", "Data Science LAB", "Internet of Everyting LAB", "Secure Application Development LAB", "Recent Open Source Project LAB", "Management Information System", "Cyber Security and laws", "Disaster Management and Mitigation Measures", "Product Life Cycle Management"],
     "8": ["it81", "it82", "it83", "it84"]
   },
   "ECS": {
@@ -42,11 +42,16 @@ var Object1 = {
   "MECH": {
     "1": ["me11", "me12", "me13", "me14"],
     "2": ["me11", "me22", "me23", "me24"],
-    "3": ["me31", "me32", "me33", "me34"],
+    "3": ["Strength of Material", "Engineering Mathematics-3", "Engineering Mathematics-3 TUT",
+      "Materials and Metallurgy", "Thermodynamics",
+      "CAD-Modelling LAB", "Machine Shop Practice", "Material Testing LAB", "Production Processes"],
     "4": ["me41", "me42", "me43", "me44"],
-    "5": ["FEA", "DOM", "PCE", "MMC", "ST", "OT", "FEA LAB", "TE LAB", "DOM LAB", "PCE LAB"],
+    "5": ["Finite Element Analysis", "Finite Element Analysis LAB", "Thermal Engineering LAB", "Thermal Engineering", "Design of Machinery", "Design of Machinery LAB",
+      "Professional Communication and Ethics", "Professional Communication and Ethics LAB", "Mechanical and Measurement Control", "Statistical Technique", "Optimization Technique"],
     "6": ["me61", "me62", "me63", "me64"],
-    "7": ["DMS", "LSM", "RES", "APS", "MD", "AV", "CSL", "PLM", "DMMM", "MIS", "DMS LAB", "ISL LAB", "MEL LAB"],
+    "7": ["Design of Mechanical Systems", "Design of Mechanical Systems LAB", "Logistics and Supply Chain Management", "Renewable Energy Source",
+      "Industrial Skill LAB", "Automotive Power System", "Machine Diagnostic", "Advanced Vibration",
+      "Maintenance Engineering LAB", "Management Information System", "Cyber Security and laws", "Disaster Management and Mitigation Measures", "Product Life Cycle Management"],
     "8": ["me81", "me82", "me83", "me84"]
   },
   "AIDS": {
@@ -89,7 +94,7 @@ var Object1 = {
       "Theory of Machines and Design LAB", "Instrumentation and Process Control", "Instrumentation and Process Control LAB",
       "Professional Communication and Ethics-2", "Professional Communication and Ethics-2 LAB"],
     "6": ["me61", "me62", "me63", "me64"],
-    "7": ["PDL", "FGP", "AFP", "PDD", "TQM TUT", "PPC TUT", "FGP LAB", "PDL LAB", "IS", "PLM", "DMMM", "CSL", "MIS"],
+    "7": ["Packaging Distribution and Logistics", "Flexographic Printing", "Advanced Food Packaging", "Package Design and Development", "Total Quality Management Tutorial", "Printing and Packaging Costing Tutorial", "Flexographic Printing LAB", "Packaging Distribution and Logistics LAB", "Industrial Skills LAB", "Management Information System", "Cyber Security and laws", "Disaster Management and Mitigation Measures", "Product Life Cycle Management"],
     "8": ["me81", "me82", "me83", "me84"]
   }
 }
