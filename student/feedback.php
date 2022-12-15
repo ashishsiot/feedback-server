@@ -102,7 +102,7 @@ session_start();
     /////////////////////////////////////////////////////////////////////
 
 
-    $student_year = array('SE', 'TE', 'BE');
+    $student_year = array('SE', 'TE', 'BE', 'FE');
     //                       0     1       2      3      4       5       6       7      8
     $student_branch = array('CE', 'EXTC', 'IT', 'PPT', 'MECH', 'ECS', 'AIDS', 'IOT', 'AIML');
 
@@ -122,7 +122,7 @@ session_start();
     $value_branch = $branch['s_branch'];
     //var_dump($value_branch);
 
-    if ($value_year == $student_year[0]) {
+    if ($value_year == $student_year[0] or $value_year == $student_year[3]) {
       $sql = "
       SELECT f_subject,f_name,f_empid1,f_year,f_branch from f_allocation,student,faculty
       WHERE student.s_branch = f_allocation.f_branch AND 
@@ -481,11 +481,11 @@ session_start();
       // PPT
       if ($value_branch == $student_branch[3]) {
         $dlo1 = $student_dlo1_BE[3];
-     
+
         $dlo2 = $student_dlo2_BE[3];
-       
+
         $ilo = $student_ilo_BE[0];
- 
+
         $key1 = array_search($value_to_delete_dlo1, $dlo1);
 
         if (($key1) !== false) {
@@ -494,7 +494,7 @@ session_start();
         }
         $dlo11 = array_values($dlo1);
 
-       
+
 
 
         $key3 = array_search($value_to_delete_ilo, $ilo);
@@ -700,7 +700,7 @@ session_start();
     if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
     }
-    if ($value_year == $student_year[0]) {
+    if ($value_year == $student_year[0] or $value_year == $student_year[3]) {
       $sql = "
         SELECT f_subject,f_name,f_empid1,f_year,f_branch from f_allocation,student,faculty
         WHERE student.s_branch = f_allocation.f_branch AND 

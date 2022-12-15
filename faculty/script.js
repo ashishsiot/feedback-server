@@ -1,6 +1,6 @@
 var Object1 = {
   "CE": {
-    "1": ["c11", "c12", "c13", "c14"],
+    "1": ["Engineering Mathematics-1", "Engineering Physics-1", "Engineering Chemistry-1", "Engineering Mechanics", "Basic Electrical Engineering", "Engineering Mathematics-1 Tutorial", "Engineering Physics-1 LAB", "Engineering Chemistry-1 LAB", "Engineering Mechanics LAB", "Basic Electrical Engineering LAB", "Basic Workshop Practice-1"],
     "2": ["c21", "c22", "c23", "c24"],
     "3": ["Engineering Mathematics-3", "Engineering Mathematics-3 Tutorial", "Discrete Structure and Graph Theory", "Data Structure", "Data Structure LAB", "Digital Logic and Computer organisation and Architecture", "Digital Logic and Computer organisation and Architecture LAB", "Computer Graphics", "Computer Graphics LAB", "Skill Lab", "Skill Lab LAB"],
     "4": ["c41", "c42", "c43", "c44"],
@@ -10,7 +10,7 @@ var Object1 = {
     "8": ["c81", "c82", "c83", "c84"]
   },
   "IT": {
-    "1": ["it11", "it12", "it13", "it14"],
+    "1": ["Engineering Mathematics-1", "Engineering Physics-1", "Engineering Chemistry-1", "Engineering Mechanics", "Basic Electrical Engineering", "Engineering Mathematics-1 Tutorial", "Engineering Physics-1 LAB", "Engineering Chemistry-1 LAB", "Engineering Mechanics LAB", "Basic Electrical Engineering LAB", "Basic Workshop Practice-1"],
     "2": ["it21", "it22", "it23", "it24"],
     "3": ["Engineering Mathematics-3", "Engineering Mathematics-3 Tutorial", "Principle of Communication", "SQL LAB", "JAVA LAB", "Data Structure and Analysis", "Data Structure and Analysis LAB", "Database Management System", "Paradigms and Computer Programming Fundamentals", "Computer Programming Paradigms LAB"],
     "4": ["it41", "it42", "it43", "it44"],
@@ -20,7 +20,7 @@ var Object1 = {
     "8": ["it81", "it82", "it83", "it84"]
   },
   "ECS": {
-    "1": ["ec11", "ec12", "ec13", "ec14"],
+    "1": ["Engineering Mathematics-1", "Engineering Physics-1", "Engineering Chemistry-1", "Engineering Mechanics", "Basic Electrical Engineering", "Engineering Mathematics-1 Tutorial", "Engineering Physics-1 LAB", "Engineering Chemistry-1 LAB", "Engineering Mechanics LAB", "Basic Electrical Engineering LAB", "Basic Workshop Practice-1"],
     "2": ["ec21", "ec22", "ec23", "ec24"],
     "3": ["Engineering Mathematics-3", "Engineering Mathematics-3 Tutorial", "Data Structure and Algorithm", "Electronics Design", "Digital Electronics", "Database Management System", "Skill Lab", "Data Structure and Algorithm LAB", "Electronics Design LAB", "Digital Electronics LAB", "Database Management System LAB", "Skill Lab LAB"],
     "4": ["ec41", "ec42", "ec43", "ec44"],
@@ -30,7 +30,7 @@ var Object1 = {
     "8": ["ec81", "ec82", "ec83", "ec84"]
   },
   "EXTC": {
-    "1": ["extc11", "extc12", "extc13", "extc14"],
+    "1": ["Engineering Mathematics-1", "Engineering Physics-1", "Engineering Chemistry-1", "Engineering Mechanics", "Basic Electrical Engineering", "Engineering Mathematics-1 Tutorial", "Engineering Physics-1 LAB", "Engineering Chemistry-1 LAB", "Engineering Mechanics LAB", "Basic Electrical Engineering LAB", "Basic Workshop Practice-1"],
     "2": ["extc11", "extc12", "extc13", "extc14"],
     "3": ["EM3", "EM3 LAB", "EDC", "EDC LAB", "DSD", "DSD LAB", "NT", "EICS", "EICS LAB", "SKL", "SKL LAB"],
     "4": ["extc11", "extc12", "extc13", "extc14"],
@@ -40,7 +40,7 @@ var Object1 = {
     "8": ["extc11", "extc12", "extc13", "extc14"]
   },
   "MECH": {
-    "1": ["me11", "me12", "me13", "me14"],
+    "1": ["Engineering Mathematics-1", "Engineering Physics-1", "Engineering Chemistry-1", "Engineering Mechanics", "Basic Electrical Engineering", "Engineering Mathematics-1 Tutorial", "Engineering Physics-1 LAB", "Engineering Chemistry-1 LAB", "Engineering Mechanics LAB", "Basic Electrical Engineering LAB", "Basic Workshop Practice-1"],
     "2": ["me11", "me22", "me23", "me24"],
     "3": ["Strength of Material", "Engineering Mathematics-3", "Engineering Mathematics-3 TUT",
       "Materials and Metallurgy", "Thermodynamics",
@@ -55,7 +55,7 @@ var Object1 = {
     "8": ["me81", "me82", "me83", "me84"]
   },
   "AIDS": {
-    "1": ["me11", "me12", "me13", "me14"],
+    "1": ["Engineering Mathematics-1", "Engineering Physics-1", "Engineering Chemistry-1", "Engineering Mechanics", "Basic Electrical Engineering", "Engineering Mathematics-1 Tutorial", "Engineering Physics-1 LAB", "Engineering Chemistry-1 LAB", "Engineering Mechanics LAB", "Basic Electrical Engineering LAB", "Basic Workshop Practice-1"],
     "2": ["me11", "me22", "me23", "me24"],
     "3": ["Engineering Mathematics-3", "Engineering Mathematics-3 Tutorial", "Discrete Structure and Graph Theory", "Data Structure", "Data Structure LAB", "Digital Logic and Computer organisation and Architecture", "Digital Logic and Computer organisation and Architecture LAB", "Computer Graphics", "Computer Graphics LAB", "Skill Lab", "Skill Lab LAB"],
     "4": ["me41", "me42", "me43", "me44"],
@@ -65,7 +65,7 @@ var Object1 = {
     "8": ["me81", "me82", "me83", "me84"]
   },
   "AIML": {
-    "1": ["me11", "me12", "me13", "me14"],
+    "1": ["Engineering Mathematics-1", "Engineering Physics-1", "Engineering Chemistry-1", "Engineering Mechanics", "Basic Electrical Engineering", "Engineering Mathematics-1 Tutorial", "Engineering Physics-1 LAB", "Engineering Chemistry-1 LAB", "Engineering Mechanics LAB", "Basic Electrical Engineering LAB", "Basic Workshop Practice-1"],
     "2": ["me11", "me22", "me23", "me24"],
     "3": ["Engineering Mathematics-3", "Engineering Mathematics-3 Tutorial", "Discrete Structure and Graph Theory", "Data Structure", "Data Structure LAB", "Digital Logic and Computer organisation and Architecture", "Digital Logic and Computer organisation and Architecture LAB", "Computer Graphics", "Computer Graphics LAB", "Skill Lab", "Skill Lab LAB"],
     "4": ["me41", "me42", "me43", "me44"],
@@ -75,7 +75,7 @@ var Object1 = {
     "8": ["me81", "me82", "me83", "me84"]
   },
   "IOT": {
-    "1": ["me11", "me12", "me13", "me14"],
+    "1": ["Engineering Mathematics-1", "Engineering Physics-1", "Engineering Chemistry-1", "Engineering Mechanics", "Basic Electrical Engineering", "Engineering Mathematics-1 Tutorial", "Engineering Physics-1 LAB", "Engineering Chemistry-1 LAB", "Engineering Mechanics LAB", "Basic Electrical Engineering LAB", "Basic Workshop Practice-1"],
     "2": ["me11", "me22", "me23", "me24"],
     "3": ["Engineering Mathematics-3", "Engineering Mathematics-3 Tutorial", "Discrete Structure and Graph Theory", "Data Structure", "Data Structure LAB", "Digital Logic and Computer organisation and Architecture", "Digital Logic and Computer organisation and Architecture LAB", "Computer Graphics", "Computer Graphics LAB", "Skill Lab", "Skill Lab LAB"],
     "4": ["me41", "me42", "me43", "me44"],
@@ -85,7 +85,7 @@ var Object1 = {
     "8": ["me81", "me82", "me83", "me84"]
   },
   "PPT": {
-    "1": ["me11", "me12", "me13", "me14"],
+    "1": ["Engineering Mathematics-1", "Engineering Physics-1", "Engineering Chemistry-1", "Engineering Mechanics", "Basic Electrical Engineering", "Engineering Mathematics-1 Tutorial", "Engineering Physics-1 LAB", "Engineering Chemistry-1 LAB", "Engineering Mechanics LAB", "Basic Electrical Engineering LAB", "Basic Workshop Practice-1"],
     "2": ["me11", "me22", "me23", "me24"],
     "3": ["me31", "me32", "me33", "me34"],
     "4": ["me41", "me42", "me43", "me44"],
