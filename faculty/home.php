@@ -147,23 +147,15 @@ session_start();
                                             <td>
                                                 <select name="sel4" id="sel4">
                                                     <option value="">Select Option</option>
-                                                    <option value="C">C</option>
-                                                    <option value="D">D</option>
+
                                                     <option value="A">A</option>
                                                     <option value="B">B</option>
-                                                    <option value="B AIML">B AIML</option>
-                                                    <option value="B IOT">B IOT</option>
-                                                    <option value="B AIDS">B AIDS</option>
+                                                    <option value="C">C</option>
+                                                    <option value="D">D</option>
                                                     <option value="E">E</option>
                                                     <option value="F">F</option>
                                                     <option value="G">G</option>
                                                     <option value="H">H</option>
-                                                    <option value="I">I</option>
-                                                    <option value="J">J</option>
-                                                    <option value="K">K</option>
-                                                    <option value="L">L</option>
-                                                    <option value="M">M</option>
-                                                    <option value="N">N</option>
                                                 </select>
                                             </td>
                                             <td>

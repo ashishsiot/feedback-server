@@ -17,10 +17,38 @@ session_start();
 
 <body>
   <!--navbar-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">SIES-GST</a>
-
+      <!--login informarion-->
+      <div class="container">
+        <div class="d-flex flex-row   justify-content-around">
+          <div class="p-1">
+            <label class="form-label float-left">Student Name:
+              <?php
+              $sql = "SELECT s_name from student where s_prn='" . $_SESSION['s_prn'] . "'";
+              $result = $con->query($sql);
+              while ($row = mysqli_fetch_array($result)) {
+                echo "" . $row['s_name'];
+              }
+              ?>
+            </label>
+          </div>
+          <div class="p-1">
+            <label class="form-label float-left">Student PRN:
+              <?php
+              $sql = "SELECT s_prn from student where s_prn='" . $_SESSION['s_prn'] . "'";
+              $result = $con->query($sql);
+              while ($row = mysqli_fetch_array($result)) {
+                echo "" . $row['s_prn'];
+              }
+              ?>
+            </label>
+          </div>
+        </div>
+      </div>
+      <!--/login informarion-->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -49,36 +77,10 @@ session_start();
     </div>
   </nav>
   <!--/navbar-->
-  <!--login informarion-->
-  <div class="container ">
-    <div class="d-flex flex-row   justify-content-around form-outline mb-4">
-      <div class="p-1">
-        <label class="form-label float-left">Student Name:
-          <?php
-          $sql = "SELECT s_name from student where s_prn='" . $_SESSION['s_prn'] . "'";
-          $result = $con->query($sql);
-          while ($row = mysqli_fetch_array($result)) {
-            echo "" . $row['s_name'];
-          }
-          ?>
-        </label>
-      </div>
-      <div class="p-1">
-        <label class="form-label float-left">Student PRN:
-          <?php
-          $sql = "SELECT s_prn from student where s_prn='" . $_SESSION['s_prn'] . "'";
-          $result = $con->query($sql);
-          while ($row = mysqli_fetch_array($result)) {
-            echo "" . $row['s_prn'];
-          }
-          ?>
-        </label>
-      </div>
-    </div>
-  </div>
 
-  <!--/login information-->
-  <h3 style="text-align:center">Theory</h3>
+
+
+  <h5 style="text-align:center">THEORY</h5>
 
   <div class="container">
     <?php
@@ -573,107 +575,117 @@ session_start();
 
     if ($result->num_rows > 0) {
       // output data of each row
-
+      echo "<font color=black size='2pt'> You have submitted your response for  following Theory subjects -- </font> ";
       while ($row = $result->fetch_assoc()) {
-        echo "<br> Teacher Name: " . $row["f_name"] . " - Subject: " . $row["f_subject"] . "<br>"; ?>
+
+        $sqlt = "SELECT s_prn,f_empid1,f_subject FROM feedback where s_prn = '" . $_SESSION['s_prn'] . "'and f_empid1 = '" . $row["f_empid1"] . "'and f_subject='" . $row["f_subject"] . "'";
+        $result1 = $conn->query($sqlt);
+
+        if ($result1->num_rows > 0) {
+          // output data of each row
+        $variable = $row["f_subject"];
+         echo "<font color=black size='2pt'><b>$variable,</b></font> <wbr>";
+        } else {
+          echo "<br> Teacher Name: " . $row["f_name"] . " - Subject: " . $row["f_subject"] . "<br>"; ?>
 
 
-        <form method="POST" action="action.php">
+          <form method="POST" action="action.php">
 
-          <input type=hidden type="text" class="form-control" id="s_prn" name="s_prn" value="<?php echo $_SESSION["s_prn"] ?>">
-          <input type=hidden type="text" class="form-control" name="f_empid1" value=<?php echo '"' . $row["f_empid1"] . '"' ?>>
-          <input type=hidden type="text" class="form-control" name="f_subject" value=<?php echo '"' . $row["f_subject"] . '"' ?>>
-          <input type=hidden type="text" class="form-control" name="f_year" value=<?php echo '"' . $row["f_year"] . '"' ?>>
-          <input type=hidden type="text" class="form-control" name="f_branch" value=<?php echo '"' . $row["f_branch"] . '"' ?>>
+            <input type=hidden type="text" class="form-control" id="s_prn" name="s_prn" value="<?php echo $_SESSION["s_prn"] ?>">
+            <input type=hidden type="text" class="form-control" name="f_empid1" value=<?php echo '"' . $row["f_empid1"] . '"' ?>>
+            <input type=hidden type="text" class="form-control" name="f_subject" value=<?php echo '"' . $row["f_subject"] . '"' ?>>
+            <input type=hidden type="text" class="form-control" name="f_year" value=<?php echo '"' . $row["f_year"] . '"' ?>>
+            <input type=hidden type="text" class="form-control" name="f_branch" value=<?php echo '"' . $row["f_branch"] . '"' ?>>
 
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Question</th>
-                <th>Strongly Disagree</th>
-                <th>Disagree</th>
-                <th>Neutral</th>
-                <th>Agree</th>
-                <th>Strongly Agree</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Teachers Subject Knowledge</td>
-                <td><input class="form-check-input" type="radio" value="1" name="q1" required="required"></td>
-                <td><input class="form-check-input" type="radio" value="2" name="q1"></td>
-                <td><input class="form-check-input" type="radio" value="3" name="q1"></td>
-                <td><input class="form-check-input" type="radio" value="4" name="q1"></td>
-                <td><input class="form-check-input" type="radio" value="5" name="q1"></td>
-              </tr>
-              <tr>
-                <td>Communication skills of the teacher</td>
-                <td><input class="form-check-input" type="radio" value="1" name="q2" required="required"></td>
-                <td><input class="form-check-input" type="radio" value="2" name="q2"></td>
-                <td><input class="form-check-input" type="radio" value="3" name="q2"></td>
-                <td><input class="form-check-input" type="radio" value="4" name="q2"></td>
-                <td><input class="form-check-input" type="radio" value="5" name="q2"></td>
-              </tr>
-              <tr>
-                <td>Ability to bring conceptual clarity and promotion of thinking ability</td>
-                <td><input class="form-check-input" type="radio" value="1" name="q3" required="required"></td>
-                <td><input class="form-check-input" type="radio" value="2" name="q3"></td>
-                <td><input class="form-check-input" type="radio" value="3" name="q3"></td>
-                <td><input class="form-check-input" type="radio" value="4" name="q3"></td>
-                <td><input class="form-check-input" type="radio" value="5" name="q3"></td>
-              </tr>
-              <tr>
-                <td>Teacher illustrates the concept through examples and applications</td>
-                <td><input class="form-check-input" type="radio" value="1" name="q4" required="required"></td>
-                <td><input class="form-check-input" type="radio" value="2" name="q4"></td>
-                <td><input class="form-check-input" type="radio" value="3" name="q4"></td>
-                <td><input class="form-check-input" type="radio" value="4" name="q4"></td>
-                <td><input class="form-check-input" type="radio" value="5" name="q4"></td>
-              </tr>
-              <tr>
-                <td>Use of appropriate online teaching methods</td>
-                <td><input class="form-check-input" type="radio" value="1" name="q5" required="required"></td>
-                <td><input class="form-check-input" type="radio" value="2" name="q5"></td>
-                <td><input class="form-check-input" type="radio" value="3" name="q5"></td>
-                <td><input class="form-check-input" type="radio" value="4" name="q5"></td>
-                <td><input class="form-check-input" type="radio" value="5" name="q5"></td>
-              </tr>
-              <tr>
-                <td>Ability to engage students during lectures</td>
-                <td><input class="form-check-input" type="radio" value="1" name="q6" required="required"></td>
-                <td><input class="form-check-input" type="radio" value="2" name="q6"></td>
-                <td><input class="form-check-input" type="radio" value="3" name="q6"></td>
-                <td><input class="form-check-input" type="radio" value="4" name="q6"></td>
-                <td><input class="form-check-input" type="radio" value="5" name="q6"></td>
-              </tr>
-              <tr>
-                <td>Fairness in internal evaluation</td>
-                <td><input class="form-check-input" type="radio" value="1" name="q7" required="required"></td>
-                <td><input class="form-check-input" type="radio" value="2" name="q7"></td>
-                <td><input class="form-check-input" type="radio" value="3" name="q7"></td>
-                <td><input class="form-check-input" type="radio" value="4" name="q7"></td>
-                <td><input class="form-check-input" type="radio" value="5" name="q7"></td>
-              </tr>
-            </tbody>
-          </table>
-          <?php
-          $sqlt = "SELECT s_prn,f_empid1,f_subject FROM feedback where s_prn = '" . $_SESSION['s_prn'] . "'and f_empid1 = '" . $row["f_empid1"] . "'and f_subject='" . $row["f_subject"] . "'";
-          $result1 = $conn->query($sqlt);
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Question</th>
+                  <th>Strongly Disagree</th>
+                  <th>Disagree</th>
+                  <th>Neutral</th>
+                  <th>Agree</th>
+                  <th>Strongly Agree</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Teachers Subject Knowledge</td>
+                  <td><input class="form-check-input" type="radio" value="1" name="q1" required="required"></td>
+                  <td><input class="form-check-input" type="radio" value="2" name="q1"></td>
+                  <td><input class="form-check-input" type="radio" value="3" name="q1"></td>
+                  <td><input class="form-check-input" type="radio" value="4" name="q1"></td>
+                  <td><input class="form-check-input" type="radio" value="5" name="q1"></td>
+                </tr>
+                <tr>
+                  <td>Communication skills of the teacher</td>
+                  <td><input class="form-check-input" type="radio" value="1" name="q2" required="required"></td>
+                  <td><input class="form-check-input" type="radio" value="2" name="q2"></td>
+                  <td><input class="form-check-input" type="radio" value="3" name="q2"></td>
+                  <td><input class="form-check-input" type="radio" value="4" name="q2"></td>
+                  <td><input class="form-check-input" type="radio" value="5" name="q2"></td>
+                </tr>
+                <tr>
+                  <td>Ability to bring conceptual clarity and promotion of thinking ability</td>
+                  <td><input class="form-check-input" type="radio" value="1" name="q3" required="required"></td>
+                  <td><input class="form-check-input" type="radio" value="2" name="q3"></td>
+                  <td><input class="form-check-input" type="radio" value="3" name="q3"></td>
+                  <td><input class="form-check-input" type="radio" value="4" name="q3"></td>
+                  <td><input class="form-check-input" type="radio" value="5" name="q3"></td>
+                </tr>
+                <tr>
+                  <td>Teacher illustrates the concept through examples and applications</td>
+                  <td><input class="form-check-input" type="radio" value="1" name="q4" required="required"></td>
+                  <td><input class="form-check-input" type="radio" value="2" name="q4"></td>
+                  <td><input class="form-check-input" type="radio" value="3" name="q4"></td>
+                  <td><input class="form-check-input" type="radio" value="4" name="q4"></td>
+                  <td><input class="form-check-input" type="radio" value="5" name="q4"></td>
+                </tr>
+                <tr>
+                  <td>Use of appropriate online teaching methods</td>
+                  <td><input class="form-check-input" type="radio" value="1" name="q5" required="required"></td>
+                  <td><input class="form-check-input" type="radio" value="2" name="q5"></td>
+                  <td><input class="form-check-input" type="radio" value="3" name="q5"></td>
+                  <td><input class="form-check-input" type="radio" value="4" name="q5"></td>
+                  <td><input class="form-check-input" type="radio" value="5" name="q5"></td>
+                </tr>
+                <tr>
+                  <td>Ability to engage students during lectures</td>
+                  <td><input class="form-check-input" type="radio" value="1" name="q6" required="required"></td>
+                  <td><input class="form-check-input" type="radio" value="2" name="q6"></td>
+                  <td><input class="form-check-input" type="radio" value="3" name="q6"></td>
+                  <td><input class="form-check-input" type="radio" value="4" name="q6"></td>
+                  <td><input class="form-check-input" type="radio" value="5" name="q6"></td>
+                </tr>
+                <tr>
+                  <td>Fairness in internal evaluation</td>
+                  <td><input class="form-check-input" type="radio" value="1" name="q7" required="required"></td>
+                  <td><input class="form-check-input" type="radio" value="2" name="q7"></td>
+                  <td><input class="form-check-input" type="radio" value="3" name="q7"></td>
+                  <td><input class="form-check-input" type="radio" value="4" name="q7"></td>
+                  <td><input class="form-check-input" type="radio" value="5" name="q7"></td>
+                </tr>
+              </tbody>
+            </table>
+            <?php
+            // $sqlt = "SELECT s_prn,f_empid1,f_subject FROM feedback where s_prn = '" . $_SESSION['s_prn'] . "'and f_empid1 = '" . $row["f_empid1"] . "'and f_subject='" . $row["f_subject"] . "'";
+            // $result1 = $conn->query($sqlt);
 
-          if ($result1->num_rows > 0) {
-            // output data of each row
-            echo '<span style="color:green;border: 1px solid green;padding: 5px;font-size: 16px;">Response Noted!</span>';
-          } else {
-            echo '<span style="color:red;border: 1px solid red;padding: 5px;font-size: 16px;">Response Remaining!</span>';
-          }
-          ?>
-          <div class="form-group mb-3 text-center">
-            <button type="submit" id="btSubmit" name="add_feedback" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
+            // if ($result1->num_rows > 0) {
+            //   // output data of each row
+            //   echo '<span style="color:green;border: 1px solid green;padding: 5px;font-size: 16px;">Response Noted!</span>';
+            // } else {
+            //   echo '<span style="color:red;border: 1px solid red;padding: 5px;font-size: 16px;">Response Remaining!</span>';
+            // }
+            ?>
+            <div class="form-group mb-3 text-center">
+              <button type="submit" id="btSubmit" name="add_feedback" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
 
 
     <?php
+        }
       }
     } else {
       echo "0 results";
@@ -683,9 +695,10 @@ session_start();
     ?>
 
   </div>
-  <h3 style="text-align:center">Lab</h3>
+  <br>
+  <h5 style="text-align:center">LAB</h5>
   <div class="container">
-    <?php
+    <?php 
     // $hostname = "localhost";
     // $username = "id19456629_user";
     // $password = "User@1234567";
@@ -858,105 +871,117 @@ session_start();
     if ($result->num_rows > 0) {
       // output data of each row
 
+
+      echo "<font color=black size='2px'> You have submitted your response for the following  LAB subjects -- </font>";
       while ($row = $result->fetch_assoc()) {
-        echo "<br> Teacher Name: " . $row["f_name"] . " - Subject: " . $row["f_subject"]  . " <br>"; ?>
+
+        $sqlt = "SELECT s_prn,f_empid1,f_subject FROM feedback where s_prn = '" . $_SESSION['s_prn'] . "'and f_empid1 = '" . $row["f_empid1"] . "'and f_subject='" . $row["f_subject"] . "' ";
+        $result1 = $conn->query($sqlt);
+        if ($result1->num_rows > 0) {
+          // output data of each row
+          $variable = $row["f_subject"];
+          // echo "<font color=black size='3pt'> You have submitted your response for - Subject: </font> <font color=green size='3pt'><b>$variable</b></font> <br>";
+          echo "<font color=black size='2pt'><b>$variable,</b></font> <wbr>";
+        } else {
+          echo "<br> Teacher Name: " . $row["f_name"] . " - Subject: " . $row["f_subject"]  . " <br>"; ?>
 
 
-        <form method="POST" action="action.php">
+          <form method="POST" action="action.php">
 
-          <input type=hidden type="text" class="form-control" id="s_prn" name="s_prn" value="<?php echo $_SESSION["s_prn"] ?>">
-          <input type=hidden type="text" class="form-control" name="f_empid1" value=<?php echo '"' . $row["f_empid1"] . '"' ?>>
-          <input type=hidden type="text" class="form-control" name="f_subject" value=<?php echo '"' . $row["f_subject"] . '"' ?>>
-          <input type=hidden type="text" class="form-control" name="f_year" value=<?php echo '"' . $row["f_year"] . '"' ?>>
-          <input type=hidden type="text" class="form-control" name="f_branch" value=<?php echo '"' . $row["f_branch"] . '"' ?>>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Question</th>
-                <th>Strongly Disagree</th>
-                <th>Disagree</th>
-                <th>Nutral</th>
-                <th>Agree</th>
-                <th>Strongly Agree</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Teachers Subject Knowledge</td>
-                <td><input class="form-check-input" type="radio" value="1" name="q1" required="required"></td>
-                <td><input class="form-check-input" type="radio" value="2" name="q1"></td>
-                <td><input class="form-check-input" type="radio" value="3" name="q1"></td>
-                <td><input class="form-check-input" type="radio" value="4" name="q1"></td>
-                <td><input class="form-check-input" type="radio" value="5" name="q1"></td>
-              </tr>
-              <tr>
-                <td>Communication skills of the teacher</td>
-                <td><input class="form-check-input" type="radio" value="1" name="q2" required="required"></td>
-                <td><input class="form-check-input" type="radio" value="2" name="q2"></td>
-                <td><input class="form-check-input" type="radio" value="3" name="q2"></td>
-                <td><input class="form-check-input" type="radio" value="4" name="q2"></td>
-                <td><input class="form-check-input" type="radio" value="5" name="q2"></td>
-              </tr>
-              <tr>
-                <td>Ability to bring conceptual clarity and promotion of thinking ability</td>
-                <td><input class="form-check-input" type="radio" value="1" name="q3" required="required"></td>
-                <td><input class="form-check-input" type="radio" value="2" name="q3"></td>
-                <td><input class="form-check-input" type="radio" value="3" name="q3"></td>
-                <td><input class="form-check-input" type="radio" value="4" name="q3"></td>
-                <td><input class="form-check-input" type="radio" value="5" name="q3"></td>
-              </tr>
-              <tr>
-                <td>Teacher illustrates the concept through examples and applications</td>
-                <td><input class="form-check-input" type="radio" value="1" name="q4" required="required"></td>
-                <td><input class="form-check-input" type="radio" value="2" name="q4"></td>
-                <td><input class="form-check-input" type="radio" value="3" name="q4"></td>
-                <td><input class="form-check-input" type="radio" value="4" name="q4"></td>
-                <td><input class="form-check-input" type="radio" value="5" name="q4"></td>
-              </tr>
-              <tr>
-                <td>Use of appropriate online teaching methods</td>
-                <td><input class="form-check-input" type="radio" value="1" name="q5" required="required"></td>
-                <td><input class="form-check-input" type="radio" value="2" name="q5"></td>
-                <td><input class="form-check-input" type="radio" value="3" name="q5"></td>
-                <td><input class="form-check-input" type="radio" value="4" name="q5"></td>
-                <td><input class="form-check-input" type="radio" value="5" name="q5"></td>
-              </tr>
-              <tr>
-                <td>Ability to engage students during lectures</td>
-                <td><input class="form-check-input" type="radio" value="1" name="q6" required="required"></td>
-                <td><input class="form-check-input" type="radio" value="2" name="q6"></td>
-                <td><input class="form-check-input" type="radio" value="3" name="q6"></td>
-                <td><input class="form-check-input" type="radio" value="4" name="q6"></td>
-                <td><input class="form-check-input" type="radio" value="5" name="q6"></td>
-              </tr>
-              <tr>
-                <td>Fairness in internal evaluation</td>
-                <td><input class="form-check-input" type="radio" value="1" name="q7" required="required"></td>
-                <td><input class="form-check-input" type="radio" value="2" name="q7"></td>
-                <td><input class="form-check-input" type="radio" value="3" name="q7"></td>
-                <td><input class="form-check-input" type="radio" value="4" name="q7"></td>
-                <td><input class="form-check-input" type="radio" value="5" name="q7"></td>
-              </tr>
-            </tbody>
-          </table>
-          <?php
-          $sqlt = "SELECT s_prn,f_empid1,f_subject FROM feedback where s_prn = '" . $_SESSION['s_prn'] . "'and f_empid1 = '" . $row["f_empid1"] . "'and f_subject='" . $row["f_subject"] . "' ";
-          $result1 = $conn->query($sqlt);
-          if ($result1->num_rows > 0) {
-            // output data of each row
-            echo '<span style="color:green;border: 1px solid green;padding: 5px;font-size: 16px;">Response Noted!</span>';
-          } else {
-            echo '<span style="color:red;border: 1px solid red;padding: 5px;font-size: 16px;">Response Remaining!</span>';
-          }
-          ?>
-          <div class="form-group mb-3 text-center">
-            <button type="submit" id="btSubmit" name="add_feedback" class="btn btn-primary">Submit</button>
-          </div>
+            <input type=hidden type="text" class="form-control" id="s_prn" name="s_prn" value="<?php echo $_SESSION["s_prn"] ?>">
+            <input type=hidden type="text" class="form-control" name="f_empid1" value=<?php echo '"' . $row["f_empid1"] . '"' ?>>
+            <input type=hidden type="text" class="form-control" name="f_subject" value=<?php echo '"' . $row["f_subject"] . '"' ?>>
+            <input type=hidden type="text" class="form-control" name="f_year" value=<?php echo '"' . $row["f_year"] . '"' ?>>
+            <input type=hidden type="text" class="form-control" name="f_branch" value=<?php echo '"' . $row["f_branch"] . '"' ?>>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Question</th>
+                  <th>Strongly Disagree</th>
+                  <th>Disagree</th>
+                  <th>Nutral</th>
+                  <th>Agree</th>
+                  <th>Strongly Agree</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Teachers Subject Knowledge</td>
+                  <td><input class="form-check-input" type="radio" value="1" name="q1" required="required"></td>
+                  <td><input class="form-check-input" type="radio" value="2" name="q1"></td>
+                  <td><input class="form-check-input" type="radio" value="3" name="q1"></td>
+                  <td><input class="form-check-input" type="radio" value="4" name="q1"></td>
+                  <td><input class="form-check-input" type="radio" value="5" name="q1"></td>
+                </tr>
+                <tr>
+                  <td>Communication skills of the teacher</td>
+                  <td><input class="form-check-input" type="radio" value="1" name="q2" required="required"></td>
+                  <td><input class="form-check-input" type="radio" value="2" name="q2"></td>
+                  <td><input class="form-check-input" type="radio" value="3" name="q2"></td>
+                  <td><input class="form-check-input" type="radio" value="4" name="q2"></td>
+                  <td><input class="form-check-input" type="radio" value="5" name="q2"></td>
+                </tr>
+                <tr>
+                  <td>Ability to bring conceptual clarity and promotion of thinking ability</td>
+                  <td><input class="form-check-input" type="radio" value="1" name="q3" required="required"></td>
+                  <td><input class="form-check-input" type="radio" value="2" name="q3"></td>
+                  <td><input class="form-check-input" type="radio" value="3" name="q3"></td>
+                  <td><input class="form-check-input" type="radio" value="4" name="q3"></td>
+                  <td><input class="form-check-input" type="radio" value="5" name="q3"></td>
+                </tr>
+                <tr>
+                  <td>Teacher illustrates the concept through examples and applications</td>
+                  <td><input class="form-check-input" type="radio" value="1" name="q4" required="required"></td>
+                  <td><input class="form-check-input" type="radio" value="2" name="q4"></td>
+                  <td><input class="form-check-input" type="radio" value="3" name="q4"></td>
+                  <td><input class="form-check-input" type="radio" value="4" name="q4"></td>
+                  <td><input class="form-check-input" type="radio" value="5" name="q4"></td>
+                </tr>
+                <tr>
+                  <td>Use of appropriate online teaching methods</td>
+                  <td><input class="form-check-input" type="radio" value="1" name="q5" required="required"></td>
+                  <td><input class="form-check-input" type="radio" value="2" name="q5"></td>
+                  <td><input class="form-check-input" type="radio" value="3" name="q5"></td>
+                  <td><input class="form-check-input" type="radio" value="4" name="q5"></td>
+                  <td><input class="form-check-input" type="radio" value="5" name="q5"></td>
+                </tr>
+                <tr>
+                  <td>Ability to engage students during lectures</td>
+                  <td><input class="form-check-input" type="radio" value="1" name="q6" required="required"></td>
+                  <td><input class="form-check-input" type="radio" value="2" name="q6"></td>
+                  <td><input class="form-check-input" type="radio" value="3" name="q6"></td>
+                  <td><input class="form-check-input" type="radio" value="4" name="q6"></td>
+                  <td><input class="form-check-input" type="radio" value="5" name="q6"></td>
+                </tr>
+                <tr>
+                  <td>Fairness in internal evaluation</td>
+                  <td><input class="form-check-input" type="radio" value="1" name="q7" required="required"></td>
+                  <td><input class="form-check-input" type="radio" value="2" name="q7"></td>
+                  <td><input class="form-check-input" type="radio" value="3" name="q7"></td>
+                  <td><input class="form-check-input" type="radio" value="4" name="q7"></td>
+                  <td><input class="form-check-input" type="radio" value="5" name="q7"></td>
+                </tr>
+              </tbody>
+            </table>
+            <?php
+            // $sqlt = "SELECT s_prn,f_empid1,f_subject FROM feedback where s_prn = '" . $_SESSION['s_prn'] . "'and f_empid1 = '" . $row["f_empid1"] . "'and f_subject='" . $row["f_subject"] . "' ";
+            // $result1 = $conn->query($sqlt);
+            // if ($result1->num_rows > 0) {
+            //   // output data of each row
+            //   echo '<span style="color:green;border: 1px solid green;padding: 5px;font-size: 16px;">Response Noted!</span>';
+            // } else {
+            //   echo '<span style="color:red;border: 1px solid red;padding: 5px;font-size: 16px;">Response Remaining!</span>';
+            // }
+            ?>
+            <div class="form-group mb-3 text-center">
+              <button type="submit" id="btSubmit" name="add_feedback" class="btn btn-primary">Submit</button>
+            </div>
 
-        </form>
+          </form>
 
 
     <?php
+        }
       }
     } else {
       echo "0 results";
