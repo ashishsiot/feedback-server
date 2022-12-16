@@ -51,7 +51,7 @@ include( 'dbcon.php' );
     <div class="container div-1">
     <h1 style="text-align: center">Form Status</h1>
     <form  method="POST" >
-        <button class="btn btn-primary" name="f_open" type="submit">Enable From</button>
+        <button class="btn btn-primary" name="f_open" type="submit">Enable Form</button>
     </form><br>
     <form  method="POST" >
     <button class="btn btn-primary" name="f_cloase" type="submit">Disable Form</button>
@@ -97,7 +97,7 @@ if ($row['status']==1){
         <div class="container">
              <form method="post" action="">
                     <div class="row">
-                    <div class="col-md-2" >
+                    <!-- <div class="col-md-2" >
                          <select class="form-select" name="s_branch">
                              <option>CE</option>
                              <option>IT</option>  
@@ -109,7 +109,7 @@ if ($row['status']==1){
                              <option>IOT</option>
                              <option>PPT</option>
                          </select>
-                        </div>   
+                        </div>    -->
                          <div class="col-md-2" >
                              <select class="form-select" name="s_year">
                              <option>FE</option>
@@ -121,10 +121,7 @@ if ($row['status']==1){
                           <div class="col-md-2" >
                              <select class="form-select" name="s_division">
                              <option>A</option>
-                               <option>B</option> 
-                               <option>B AIDS</option> 
-                               <option>B AIML</option> 
-                               <option>B IOT</option>  
+                               <option>B</option>   
                                  <option>C</option>
                                  <option>D</option>
                                <option>E</option>
@@ -173,7 +170,7 @@ if ($row['status']==1){
                             </tr>
                             <?php
                             include( 'dbcon.php' );
-                            $sql = "SELECT student.s_prn,student.s_branch,student.s_year,student.s_division FROM `student` LEFT JOIN feedback on student.s_prn=feedback.s_prn WHERE feedback.s_prn IS NULL and student.s_year =  '". $s_year ."' and student.s_division = '". $s_division ."' and student.s_branch = '". $s_branch ."' ;";
+                            $sql = "SELECT student.s_prn,student.s_year,student.s_branch,student.s_division FROM `student` LEFT JOIN feedback on student.s_prn=feedback.s_prn WHERE feedback.s_prn IS NULL and student.s_year =  '". $s_year ."' and student.s_division = '". $s_division ."' ;";
                             $result = $con->query($sql);
                             $con->close();
                             while($rows=$result->fetch_assoc())
@@ -208,7 +205,7 @@ if ($row['status']==1){
                             </tr>
                             <?php
                             include( 'dbcon.php' );
-                            $sql = "SELECT student.s_prn,student.s_branch,student.s_year,student.s_division FROM `student` JOIN feedback on student.s_prn=feedback.s_prn WHERE student.s_year =  '". $s_year ."' and student.s_division = '". $s_division ."' and student.s_branch = '". $s_branch ."' GROUP by feedback.s_prn;";
+                            $sql = "SELECT student.s_prn,student.s_branch,student.s_year,student.s_division FROM `student` JOIN feedback on student.s_prn=feedback.s_prn WHERE student.s_year =  '". $s_year ."' and student.s_division = '". $s_division ."' GROUP by feedback.s_prn;";
                             $result = $con->query($sql);
                             $con->close();
                             while($rows=$result->fetch_assoc())

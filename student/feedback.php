@@ -127,7 +127,7 @@ session_start();
     if ($value_year == $student_year[0] or $value_year == $student_year[3]) {
       $sql = "
       SELECT f_subject,f_name,f_empid1,f_year,f_branch from f_allocation,student,faculty
-      WHERE student.s_branch = f_allocation.f_branch AND 
+      WHERE 
       student.s_division = f_allocation.f_division AND
       student.s_year = f_allocation.f_year AND
       student.s_prn= '" . $_SESSION['s_prn'] . "'  AND 
@@ -583,8 +583,8 @@ session_start();
 
         if ($result1->num_rows > 0) {
           // output data of each row
-        $variable = $row["f_subject"];
-         echo "<font color=black size='2pt'><b>$variable,</b></font> <wbr>";
+          $variable = $row["f_subject"];
+          echo "<font color=black size='2pt'><b>$variable,</b></font> <wbr>";
         } else {
           echo "<br> Teacher Name: " . $row["f_name"] . " - Subject: " . $row["f_subject"] . "<br>"; ?>
 
@@ -698,7 +698,7 @@ session_start();
   <br>
   <h5 style="text-align:center">LAB</h5>
   <div class="container">
-    <?php 
+    <?php
     // $hostname = "localhost";
     // $username = "id19456629_user";
     // $password = "User@1234567";
@@ -716,7 +716,7 @@ session_start();
     if ($value_year == $student_year[0] or $value_year == $student_year[3]) {
       $sql = "
         SELECT f_subject,f_name,f_empid1,f_year,f_branch from f_allocation,student,faculty
-        WHERE student.s_branch = f_allocation.f_branch AND 
+        WHERE 
 	      student.s_division = f_allocation.f_division AND
         student.s_year = f_allocation.f_year AND
         student.s_prn= '" . $_SESSION['s_prn'] . "'  AND 

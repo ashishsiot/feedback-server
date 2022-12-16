@@ -4,7 +4,7 @@ include( 'dbcon.php' );
 session_start();
 
 
-$sql = " select f_subject , (sum(q1)/(count(q1)*5))*100 as q1, (sum(q2)/(count(q2)*5))*100 as q2, (sum(q3)/(count(q3)*5))*100 as q3, (sum(q4)/(count(q4)*5))*100 as q4, (sum(q5)/(count(q5)*5))*100 as q5, (sum(q6)/(count(q6)*5))*100 as q6, (sum(q7)/(count(q7)*5))*100 as q7 from feedback WHERE f_empid1='".$_SESSION['f_empid1']."' GROUP by f_subject ";
+$sql = " select f_subject , f_branch, (sum(q1)/(count(q1)*5))*100 as q1, (sum(q2)/(count(q2)*5))*100 as q2, (sum(q3)/(count(q3)*5))*100 as q3, (sum(q4)/(count(q4)*5))*100 as q4, (sum(q5)/(count(q5)*5))*100 as q5, (sum(q6)/(count(q6)*5))*100 as q6, (sum(q7)/(count(q7)*5))*100 as q7 from feedback WHERE f_empid1='".$_SESSION['f_empid1']."' GROUP by f_subject, f_branch";
 
 $result = $con->query($sql);
 $con->close();
@@ -58,6 +58,7 @@ $con->close();
                 <thead>
                     <tr>
                         <th>Subject</th>
+                        <th>Branch</th>
                         <th>Teachers Subject Knowledge</th>
                         <th>Communication skills of the teacher</th>
                         <th>Ability to bring conceptual clarity and promotion of thinking ability</th>
@@ -73,6 +74,7 @@ $con->close();
                 ?>
                 <tr>
                     <td><?php echo $rows['f_subject'];?></td>
+                    <td><?php echo $rows['f_branch'];?></td>
                     <td><?php echo $rows['q1'];?></td>
                     <td><?php echo $rows['q2'];?></td>
                     <td><?php echo $rows['q3'];?></td>
